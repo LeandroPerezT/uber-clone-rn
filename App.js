@@ -4,18 +4,21 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import { Provider } from 'react-redux'
 import { store } from './store.js'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import 'react-native-gesture-handler'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
 import HomeScreen from './screens/HomeScreen.js'
 
 
 export default function App() {
-
-
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <HomeScreen />
-      </SafeAreaProvider>
+      <NavigationContainer>
+        <SafeAreaProvider>
+          <HomeScreen />
+        </SafeAreaProvider>
+      </NavigationContainer>
     </Provider>
   );
 }
