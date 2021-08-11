@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView, Platform, StatusBar, Image} from 
 import tw from 'tailwind-react-native-classnames'
 import NavOptions from '../components/NavOptions'
 
+
 const HomeScreen = () =>{
   return(
     <SafeAreaView style={ [styles.container, tw`bg-white h-full`] }>
@@ -18,6 +19,7 @@ const HomeScreen = () =>{
           />
 
         <NavOptions/>
+
       </View>
     </SafeAreaView>
   )

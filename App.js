@@ -6,17 +6,36 @@ import { store } from './store.js'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './screens/HomeScreen.js'
+import MapScreen from './screens/MapScreen.js'
 
 
 export default function App() {
+
+  const Stack = createNativeStackNavigator();
+
   return (
     <Provider store={store}>
       <NavigationContainer>
         <SafeAreaProvider>
-          <HomeScreen />
+          <Stack.Navigator>
+             
+            <Stack.Screen 
+              name='HomeScreen'
+            component={HomeScreen}
+            options={{
+                headerShown: false
+              }}/> 
+            <Stack.Screen
+            name='MapScreen'
+            component={MapScreen}
+            options={{
+                headerShown: false
+              }}/>
+
+          </Stack.Navigator>
         </SafeAreaProvider>
       </NavigationContainer>
     </Provider>
