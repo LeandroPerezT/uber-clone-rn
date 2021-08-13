@@ -35,20 +35,21 @@ const HomeScreen = () =>{
           }}
             nearbyPlacesApi='GooglePlacesSearch'
             debounce={400}
+            returnKeyTyoe={'search'}
             placeholder='Dónde estas?'
             query={{
               key: GOOGLE_MAPS_API_KEY,
               language: 'en', 
           }}
             enablePoweredByContainer={false}
-            onPress={(data, details = null)=>{
-              dispatch(setOrigin({
-                location: details.geometry.location,
-                description: data.description
-              }))
-              dispatch(setDestination(null))
-            }}
             fetchDetails={true}
+            onPress={(data, details)=>{
+              dispatch(setOrigin({
+              location: details.geometry.location,
+              description: data.description
+            })),
+            dispatch(setDestination(null))
+            }}
             minLength={3}
           />
 
